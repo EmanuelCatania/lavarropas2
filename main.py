@@ -4,7 +4,7 @@ import time
 import requests
 
 # Configurar el navegador
-chromedriver_path = '/usr/local/bin/chromedriver'
+chromedriver_path = '/home/runner/work/lavarropas2/lavarropas2/chromedriver'
 
 driver = webdriver.Chrome(executable_path=chromedriver_path)
 # URL de la página web
