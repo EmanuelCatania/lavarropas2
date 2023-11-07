@@ -28,7 +28,7 @@ def enviar_notificacion(respuesta):
         else:
             print(f"Error al enviar la notificación. Código de estado: {response.status_code}")
     except Exception as e:
-        print(f"Error al enviar la notificación: {str(e}")
+        print(f"Error al enviar la notificación: {str(e)}")
 
 def main():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
