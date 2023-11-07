@@ -38,7 +38,7 @@ def main():
 
     # Locator que deseas validar
     locator = (By.XPATH, "/html/body/div[2]/div/div[1]/div/div/div/div[1]/div/div[7]/div/section/div/div[2]/div/div[4]/div/div/div[2]")
-
+    time.sleep(10)
     try:
         element = driver.find_element(*locator)
         if element.is_displayed():
