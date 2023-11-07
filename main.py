@@ -9,7 +9,7 @@ chromedriver_path = '/home/runner/work/lavarropas2/lavarropas2/chromedriver'
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')  # Opcional: Ejecutar Chrome en modo headless (sin interfaz gráfica)
 
-driver = webdriver.Chrome(executable_path=chromedriver_path, options=options)
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 # URL de la página web
 url = "https://shop.samsung.com/ar/lavasecarropas-9-5kg-con-control-ia-y-ecobubble-inox---beneficio-pre-registro/p?skuId=137773"
 driver.get(url)
