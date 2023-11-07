@@ -29,5 +29,5 @@ jobs:
       - name: Run script
         run: python main.py
 
-      - name: Chrome/Chromedriver Matcher Action
-        uses: jamesmortensen/chromedriver-matcher-action@v1.0.1
+      - name: setup-chromedriver
+        uses: nanasess/setup-chromedriver@v2.2.1
