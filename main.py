@@ -5,13 +5,13 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 import time
 import requests
 
-def main():
     # Configurar el navegador
-    chromedriver_path = '/home/runner/work/lavarropas2/lavarropas2/chromedriver'
+chromedriver_path = '/home/runner/work/lavarropas2/lavarropas2/chromedriver'
 
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')  # Opcional: Ejecutar Chrome en modo headless (sin interfaz gráfica)
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')  # Opcional: Ejecutar Chrome en modo headless (sin interfaz gráfica)
 
+def main():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     
     # URL de la página web
