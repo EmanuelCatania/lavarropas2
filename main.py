@@ -52,3 +52,4 @@ while True:
     except:
         print("Error al buscar el locator.")
         respuesta = "error al buscar el locator"
+time.sleep(6000)
