@@ -50,5 +50,3 @@ enviar_notificacion(mensaje)
     except:
         print("Error al buscar el locator.")
         respuesta = "error al buscar el locator"
-    # Espera 1 hora (3600 segundos) antes de la siguiente verificación
-    time.sleep(3600)
