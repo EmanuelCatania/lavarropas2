@@ -4,8 +4,9 @@ import time
 import requests
 
 # Configurar el navegador
-driver = webdriver.Chrome()
+chromedriver_path = '/usr/local/bin/chromedriver'
 
+driver = webdriver.Chrome(executable_path=chromedriver_path)
 # URL de la página web
 url = "https://shop.samsung.com/ar/lavasecarropas-9-5kg-con-control-ia-y-ecobubble-inox---beneficio-pre-registro/p?skuId=137773"
 driver.get(url)
