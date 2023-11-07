@@ -20,7 +20,7 @@ jobs:
         run: |
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d '.' -f1)
           CHROMEDRIVER_URL=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}")
-          echo "::set-output name=chromedriver_url::https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_URL}/chromedriver-linux64.zip"
+          echo "::set-output name=chromedriver_url::https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_URL}/chromedriver_linux64.zip"
         shell: bash
 
       - name: Set up ChromeDriver
