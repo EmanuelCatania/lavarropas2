@@ -17,11 +17,11 @@ jobs:
 
       - name: Set up ChromeDriver
         run: |
-          LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
+          CHROMEDRIVER_VERSION=118.0.5993.70
+          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
+          chmod +x chromedriver
+          mv chromedriver /usr/local/bin/
 
       - name: Set up Python
         uses: actions/setup-python@v2
