@@ -12,6 +12,7 @@ options = webdriver.ChromeOptions()
 options.add_argument('--headless')  # Opcional: Ejecutar Chrome en modo headless (sin interfaz gráfica)
 
 def enviar_notificacion(respuesta):
+    webhook_url = "https://chat.googleapis.com/v1/spaces/AAAARcBFhCU/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=JjX67BMcUAJmQfzfKywG-DhQDphWhULXpoA-sdyi-DU"
     payload = {
         "text": respuesta
     }
