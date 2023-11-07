@@ -18,7 +18,9 @@ jobs:
           python-version: '3.x' # Asegúrate de especificar la versión de Python correcta
 
       - name: Install dependencies
-        run: pip install selenium
+        run: |
+          pip install selenium
+          pip install requests
 
       - name: Run script
         run: python main.py
