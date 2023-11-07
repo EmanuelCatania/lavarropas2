@@ -1,9 +1,12 @@
 name: Verify Locator Every Hour
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '0 * * * *' # Ejecutar cada hora
-
+  
 jobs:
   run-script:
     runs-on: ubuntu-latest
