@@ -22,6 +22,11 @@ jobs:
           unzip chromedriver_linux64.zip
           chmod +x chromedriver
           mv chromedriver /usr/local/bin/
+
+      - name: Print Chromedriver Location
+        run: |
+          echo "Chromedriver location: $(pwd)/chromedriver"
+        shell: bash
           
       - name: Set up Python
         uses: actions/setup-python@v2
