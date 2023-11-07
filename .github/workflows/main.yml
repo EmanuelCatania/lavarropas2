@@ -29,5 +29,10 @@ jobs:
       - name: Run script
         run: python main.py
 
-      - name: setup-chromedriver
-        uses: nanasess/setup-chromedriver@v2.2.1
+      - name: Download and set up Chromedriver
+        run: |
+          CHROMEDRIVER_VERSION=114
+          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          chmod +x chromedriver
+          mv chromedriver /usr/local/bin/
