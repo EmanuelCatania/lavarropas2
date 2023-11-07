@@ -11,11 +11,18 @@ jobs:
   run-script:
     runs-on: ubuntu-latest
     
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Download and set up Chromedriver
+        run: |
+          CHROMEDRIVER_VERSION=114
+          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          chmod +x chromedriver
+          mv chromedriver /usr/local/bin/
+          
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -29,10 +36,4 @@ jobs:
       - name: Run script
         run: python main.py
 
-      - name: Download and set up Chromedriver
-        run: |
-          CHROMEDRIVER_VERSION=114
-          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          chmod +x chromedriver
-          mv chromedriver /usr/local/bin/
+
