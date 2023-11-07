@@ -17,7 +17,7 @@ url = "https://shop.samsung.com/ar/lavasecarropas-9-5kg-con-control-ia-y-ecobubb
 driver.get(url)
 
 # Locator que deseas validar
-locator = (By.XPATH, "/html/body/div[2]/div/div/.../div/div[4]/div/div/div[2]")
+locator = (By.XPATH, "/html/body/div[2]/div/div[1]/div/div/div/div[1]/div/div[7]/div/section/div/div[2]/div/div[4]/div/div/div[2]")
 
 while True:
     try:
