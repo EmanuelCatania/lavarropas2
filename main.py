@@ -5,21 +5,22 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 import time
 import requests
 
-# Configurar el navegador
-chromedriver_path = '/home/runner/work/lavarropas2/lavarropas2/chromedriver'
+def main():
+    # Configurar el navegador
+    chromedriver_path = '/home/runner/work/lavarropas2/lavarropas2/chromedriver'
 
-options = webdriver.ChromeOptions()
-options.add_argument('--headless')  # Opcional: Ejecutar Chrome en modo headless (sin interfaz gráfica)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')  # Opcional: Ejecutar Chrome en modo headless (sin interfaz gráfica)
 
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
-# URL de la página web
-url = "https://shop.samsung.com/ar/lavasecarropas-9-5kg-con-control-ia-y-ecobubble-inox---beneficio-pre-registro/p?skuId=137773"
-driver.get(url)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+    
+    # URL de la página web
+    url = "https://shop.samsung.com/ar/lavasecarropas-9-5kg-con-control-ia-y-ecobubble-inox---beneficio-pre-registro/p?skuId=137773"
+    driver.get(url)
 
-# Locator que deseas validar
-locator = (By.XPATH, "/html/body/div[2]/div/div[1]/div/div/div/div[1]/div/div[7]/div/section/div/div[2]/div/div[4]/div/div/div[2]")
+    # Locator que deseas validar
+    locator = (By.XPATH, "/html/body/div[2]/div/div[1]/div/div/div/div[1]/div/div[7]/div/section/div/div[2]/div/div[4]/div/div/div[2]")
 
-while True:
     try:
         element = driver.find_element(*locator)
         if element.is_displayed():
@@ -51,10 +52,19 @@ while True:
             except Exception as e:
                 print(f"Error al enviar la notificación: {str(e)}")
 
-        mensaje = "Nico el lavarropas!."
+        mensaje = respuesta
         enviar_notificacion(mensaje)
 
     except:
         print("Error al buscar el locator.")
         respuesta = "error al buscar el locator"
-time.sleep(6000)
+        mensaje = respuesta
+        enviar_notificacion(mensaje)
+    
+    # Cerrar el navegador
+    driver.quit()
+
+if __name__ == "__main__":
+    while True:
+        main()
+        time.sleep(3600)  # Esperar 1 hora antes de volver a ejecutar
