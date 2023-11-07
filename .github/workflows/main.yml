@@ -15,13 +15,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Get Chromedriver URL
+        id: chromedriver
+        run: |
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d '.' -f1)
+          CHROMEDRIVER_URL=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}")
+          echo "::set-output name=chromedriver_url::https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_URL}/chromedriver-linux64.zip"
+        shell: bash
+
       - name: Set up ChromeDriver
         run: |
-          CHROMEDRIVER_VERSION=118.0.5993.70
-          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+          wget ${{ steps.chromedriver.outputs.chromedriver_url }}
           unzip chromedriver_linux64.zip
           chmod +x chromedriver
           mv chromedriver /usr/local/bin/
+        shell: bash
+
 
       - name: Set up Python
         uses: actions/setup-python@v2
