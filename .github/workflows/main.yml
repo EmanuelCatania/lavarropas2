@@ -1,0 +1,24 @@
+name: Verify Locator Every Hour
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Ejecutar cada hora
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Asegúrate de especificar la versión de Python correcta
+
+      - name: Install dependencies
+        run: pip install selenium
+
+      - name: Run script
+        run: python main.py
