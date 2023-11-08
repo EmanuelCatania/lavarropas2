@@ -2,7 +2,7 @@ name: Verify Locator Every Hour
 
 on:
   schedule:
-    - cron: '0 * * * *' # Ejecutar cada hora
+     - cron: '0 13 * * *' # jecutar todos los días a las 10:00 AM, hora de Argentina (UTC-3)
 
 jobs:
   run-script:
