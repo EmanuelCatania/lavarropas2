@@ -44,10 +44,10 @@ def main():
         element = driver.find_element(*locator)
         if element.is_displayed():
             print("Locator encontrado en la página.")
-            respuesta = "no hay stock niconi"
+            respuesta = "no hay stock de prueba"
         else:
             print("Locator no encontrado en la página. Notificando...")
-            respuesta = "si hay stock niconi"
+            respuesta = "si hay stock de prueba"
 
         # URL del webhook de Google Chat
         webhook_url = "https://chat.googleapis.com/v1/spaces/AAAARcBFhCU/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=JjX67BMcUAJmQfzfKywG-DhQDphWhULXpoA-sdyi-DU"
