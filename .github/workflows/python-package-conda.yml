@@ -1,24 +1,44 @@
 name: Verify Locator Every Hour
 
 on:
+  push:
+    branches:
+      - main
   schedule:
-     - cron: '0 13 * * *' # jecutar todos los días a las 10:00 AM, hora de Argentina (UTC-3)
-
+    - cron: '0 13 * * *' # jecutar todos los días a las 10:00 AM, hora de Argentina (UTC-3)
+  
 jobs:
   run-script:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Download and set up Chromedriver
+        run: |
+          CHROMEDRIVER_VERSION="114.0.5735.90"
+          wget "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
+          unzip chromedriver_linux64.zip
+          chmod +x chromedriver
+          mv chromedriver /usr/local/bin/
+
+      - name: Print Chromedriver Location
+        run: |
+          echo "Chromedriver location: $(pwd)/chromedriver"
+        shell: bash
+          
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x' # Asegúrate de especificar la versión de Python correcta
+          python-version: '3.10' # Asegúrate de especificar la versión de Python correcta
 
       - name: Install dependencies
-        run: pip install selenium
+        run: |
+          pip install selenium
+          pip install requests
+          pip install --upgrade pip
+          pip install webdriver_manager
 
       - name: Run script
         run: python main.py
